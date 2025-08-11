@@ -1,0 +1,24 @@
+// Màu sắc chính theo Figma
+$color-yellow: #FFD600;
+$color-yellow-light: #FFF9C4;
+$color-black: #181818;
+$color-white: #FFFFFF;
+$color-gray-border: #E0E0E0;
+$color-gray-text: #757575;
+$color-blue: #1976D2;
+$color-red: #E53935;
+
+// Golden90 linear gradient
+$color-golden90-start: #F8E889;
+$color-golden90-end: #E4B764;
+$gradient-golden90: linear-gradient(90deg, #F8E889 0%, #E4B764 100%);
+
+// Font
+$font-main: 'Inter', Arial, sans-serif;
+
+// Radius
+$radius-main: 8px;
+
+.gradient-golden90 {
+  background: $gradient-golden90;
+}
