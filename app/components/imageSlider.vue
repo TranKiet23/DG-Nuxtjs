@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import matchCard from "./matchCard.vue";
 import { ref, onMounted, watch, onUnmounted } from "vue";
-import ChevronLeft from '../assets/imgs/icon-left.svg'
-import ChevronRight from '../assets/imgs/icon-right.svg'
+import ChevronLeft from "../assets/imgs/icon-left.svg";
+import ChevronRight from "../assets/imgs/icon-right.svg";
 interface Slide {
   image: string;
   title?: string;
@@ -112,12 +112,10 @@ watch(
       <button
         v-if="!showAll"
         @click="scrollToPrev"
-        style="left:-49px"
+        style="left: -49px"
         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer p-2"
       >
-        
         <img :src="ChevronLeft" alt="Prev" class="w-20 h-56" />
-
       </button>
 
       <!-- Nút phải -->
@@ -126,8 +124,7 @@ watch(
         @click="scrollToNext"
         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer p-2"
       >
-               <img :src="ChevronRight" alt="Next" class="w-20 h-56 " />
-
+        <img :src="ChevronRight" alt="Next" class="w-20 h-56" />
       </button>
 
       <!-- Container -->
