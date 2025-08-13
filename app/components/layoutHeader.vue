@@ -78,6 +78,7 @@
             >
               <button
                 class="bg-white text-black font-semibold px-3 py-1 rounded-full text-xs md:text-sm"
+                 @click="login"
               >
                 ĐĂNG KÝ
               </button>
@@ -125,16 +126,34 @@
               class="flex items-center mr-6 shrink-0"
             >
               <i :class="[sec.icon, sec.color, 'mr-1']"></i>
-              {{ sec.label }}
+              <p :class="sec.color">{{ sec.label }}</p>
             </div>
 
             <!-- Language -->
             <button
-              class="bg-red-600 text-white rounded-full px-4 py-[2px] ml-auto mr-3 text-[12px] font-semibold shrink-0"
+              class="bg-red-600 text-white h-[25px] rounded-full mx-2 px-3 py-[2px] ml-auto mr- text-[12px] font-semibold shrink-0"
             >
               TIẾNG VIỆT
             </button>
-            <i class="fas fa-cog text-[#f2cb59] text-[14px] shrink-0"></i>
+            <!-- Language -->
+            <div
+              @click="toggleTheme"
+              class="w-[79px] h-[29px] flex items-center mx-3 rounded-full cursor-pointer border border-[#d4af37] p-[2px]"
+              :class="
+                theme === 'light'
+                  ? 'bg-gradient-to-r from-[#1c1c1c] to-[#000]'
+                  : 'bg-gradient-to-r from-[#000] to-[#1c1c1c]'
+              "
+            >
+              <div
+                class="w-[29px] h-[25px] flex items-center justify-center rounded-full border border-[#d4af37] bg-[#d4af37] text-black transition-all duration-300"
+                :class="
+                  theme === 'light' ? 'translate-x-0' : 'translate-x-[45px]'
+                "
+              >
+                <i class="fas fa-sun text-black"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -163,7 +182,7 @@
           >
             <!-- Language -->
             <button
-              class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-yellow-300 font-bold"
+              class="w-8 h-8 rounded-full bg-black py-1 flex items-center justify-center text-yellow-300 font-bold"
             >
               VN
             </button>
@@ -171,7 +190,7 @@
             <!-- Menu -->
             <button
               @click="toggleMobileMenu"
-              class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-yellow-300"
+              class="w-8 h-8 rounded-full bg-black py-1 flex items-center justify-center text-yellow-300"
             >
               <i class="fas fa-bars"></i>
             </button>
@@ -198,11 +217,19 @@
               alt="Gamepad"
               class="w-8 h-8"
             />
-            <button
-              class="flex items-center bg-black text-yellow-300 rounded-full px-3 py-1 border border-yellow-300"
+            <div
+              @click="toggleTheme"
+              class="w-[79px] h-[30px] flex items-center rounded-full cursor-pointer border border-[#d4af37] p-[2px]"
             >
-              <i class="fas fa-coins mr-1"></i>
-            </button>
+              <div
+                class="w-[29px] h-[28px] flex items-center justify-center rounded-full border border-[#d4af37] bg-[#d4af37] text-black transition-all duration-300"
+                :class="
+                  theme === 'light' ? 'translate-x-0' : 'translate-x-[45px]'
+                "
+              >
+                <i class="fas fa-sun text-black"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -276,13 +303,21 @@ const toggleMobileMenu = (): void => {
   mobileOpen.value = !mobileOpen.value;
 };
 
+type Theme = "light" | "dark";
+
+const theme = ref<Theme>("light");
+
+const toggleTheme = (): void => {
+  theme.value = theme.value === "light" ? "dark" : "light";
+};
+
 const secondaryMenu: SecondaryMenuItem[] = [
-  { label: "Bảng Tin", icon: "fas fa-comment-alt", color: "" },
-  { label: "Reels", icon: "fas fa-video", color: "text-[#f2cb59]" },
-  { label: "Highlight", icon: "fas fa-play", color: "text-[#f2cb59]" },
-  { label: "Tip Kèo", icon: "fas fa-chess-knight", color: "text-[#f2cb59]" },
-  { label: "Phim Ảnh", icon: "fas fa-film", color: "text-[#f2cb59]" },
-  { label: "Truyện Tranh", icon: "fas fa-book", color: "text-[#f2cb59]" },
+  { label: "Bảng Tin", icon: "fas fa-comment-alt", color: "text-[#F8E889]" },
+  { label: "Reels", icon: "fas fa-video", color: "text-[#F8E889]" },
+  { label: "Highlight", icon: "fas fa-play", color: "text-[#F8E889]" },
+  { label: "Tip Kèo", icon: "fas fa-chess-knight", color: "text-[#F8E889]" },
+  { label: "Phim Ảnh", icon: "fas fa-film", color: "text-[#F8E889]" },
+  { label: "Truyện Tranh", icon: "fas fa-book", color: "text-[#F8E889]" },
 ];
 </script>
 
@@ -298,21 +333,5 @@ const secondaryMenu: SecondaryMenuItem[] = [
 }
 .slide-leave-to {
   transform: translateX(100%);
-}
-
-.display-mb {
-  display: none; /* Ẩn mặc định (desktop) */
-
-  @media (max-width: 769px) {
-    display: block; /* Hiện khi mobile */
-  }
-}
-
-.display-desktop {
-  display: block; /* Hiện mặc định (desktop) */
-
-  @media (max-width: 769px) {
-    display: none; /* Ẩn khi mobile */
-  }
 }
 </style>

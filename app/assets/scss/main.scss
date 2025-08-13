@@ -22,3 +22,28 @@ $radius-main: 8px;
 .gradient-golden90 {
   background: $gradient-golden90;
 }
+.display-mb {
+  display: none; /* Ẩn mặc định (desktop) */
+
+  @media (max-width: 769px) {
+    display: block; /* Hiện khi mobile */
+  }
+}
+
+
+
+.display-desktop {
+  display: block; /* Hiện mặc định (desktop) */
+
+  @media (max-width: 769px) {
+    display: none; /* Ẩn khi mobile */
+  }
+}
+
+.custom-background {
+    background : #fff;
+
+  @media (max-width: 769px) {
+     background: $gradient-golden90;
+  }
+}

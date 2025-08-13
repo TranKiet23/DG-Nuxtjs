@@ -12,7 +12,9 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'Header': typeof import("../app/components/header.vue")['default']
+      'ImageSlider': typeof import("../app/components/imageSlider.vue")['default']
+    'LayoutHeader': typeof import("../app/components/layoutHeader.vue")['default']
+    'MatchCard': typeof import("../app/components/matchCard.vue")['default']
     'NavInfo': typeof import("../app/components/navInfo.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -38,7 +40,9 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyHeader': LazyComponent<typeof import("../app/components/header.vue")['default']>
+      'LazyImageSlider': LazyComponent<typeof import("../app/components/imageSlider.vue")['default']>
+    'LazyLayoutHeader': LazyComponent<typeof import("../app/components/layoutHeader.vue")['default']>
+    'LazyMatchCard': LazyComponent<typeof import("../app/components/matchCard.vue")['default']>
     'LazyNavInfo': LazyComponent<typeof import("../app/components/navInfo.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
@@ -70,7 +74,9 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
-export const Header: typeof import("../app/components/header.vue")['default']
+export const ImageSlider: typeof import("../app/components/imageSlider.vue")['default']
+export const LayoutHeader: typeof import("../app/components/layoutHeader.vue")['default']
+export const MatchCard: typeof import("../app/components/matchCard.vue")['default']
 export const NavInfo: typeof import("../app/components/navInfo.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
@@ -96,7 +102,9 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-export const LazyHeader: LazyComponent<typeof import("../app/components/header.vue")['default']>
+export const LazyImageSlider: LazyComponent<typeof import("../app/components/imageSlider.vue")['default']>
+export const LazyLayoutHeader: LazyComponent<typeof import("../app/components/layoutHeader.vue")['default']>
+export const LazyMatchCard: LazyComponent<typeof import("../app/components/matchCard.vue")['default']>
 export const LazyNavInfo: LazyComponent<typeof import("../app/components/navInfo.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>

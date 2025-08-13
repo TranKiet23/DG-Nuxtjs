@@ -136,6 +136,8 @@
 </template>
 
 <script setup lang="ts">
+import API from '../server/api/menu';
+
 const isOpen = ref<boolean>(false);
 
 const gold = ref<number>(1000);
@@ -144,29 +146,26 @@ const king = ref<number>(20000);
 
 const toggleDropdown = (): void => {
   isOpen.value = !isOpen.value;
+  showMenu.value = false
+
 };
 
 const closeDropdown = (): void => {
   isOpen.value = false;
 };
-
 interface MenuItem {
-  label: string
-  icon: string
-  link: string
+  label: string;
+  icon: string;
+  color: string;
 }
-const menuItems: MenuItem[] = [
-  { label: 'Trang Cá Nhân', icon: 'fas fa-home', link: '#' },
-  { label: 'Nhiệm Vụ', icon: 'fas fa-bullseye', link: '#' },
-  { label: 'Ví Của Bạn', icon: 'fas fa-wallet', link: '#' },
-  { label: 'Lịch Sử Giao Dịch', icon: 'fas fa-chart-bar', link: '#' },
-  { label: 'Thoát Tài Khoản', icon: 'fas fa-sign-out-alt', link: '#' }
-]
-
+const menuItems: MenuItem[] = ref<any>(API.listInfo)
+ 
 const showMenu = ref(false)
 
 const toggleMenu = (): void => {
   showMenu.value = !showMenu.value
+  isOpen.value = false;
+
 }
 
 // Giả sử API trả về mảng MenuItem
