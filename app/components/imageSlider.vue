@@ -112,7 +112,7 @@ watch(
       <button
         v-if="!showAll"
         @click="scrollToPrev"
-        style="left: -49px"
+        style="left: -52px"
         class="absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer p-2"
       >
         <img :src="ChevronLeft" alt="Prev" class="w-20 h-56" />
