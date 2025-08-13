@@ -141,7 +141,7 @@
               class="w-[79px] h-[29px] flex items-center mx-3 rounded-full cursor-pointer border border-[#d4af37] p-[2px]"
               :class="
                 theme === 'light'
-                  ? 'bg-gradient-to-r from-[#1c1c1c] to-[#000]'
+                  ? 'bg-gray-100'
                   : 'bg-gradient-to-r from-[#000] to-[#1c1c1c]'
               "
             >
@@ -219,6 +219,11 @@
             />
             <div
               @click="toggleTheme"
+                 :class="
+                theme === 'light'
+                  ? 'bg-gray-100'
+                  : 'bg-gradient-to-r from-[#000] to-[#1c1c1c]'
+              "
               class="w-[79px] h-[30px] flex items-center rounded-full cursor-pointer border border-[#d4af37] p-[2px]"
             >
               <div
@@ -266,7 +271,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import navInfo from "../components/navInfo.vue";
-
 interface DropdownItem {
   icon: string;
   alt: string;

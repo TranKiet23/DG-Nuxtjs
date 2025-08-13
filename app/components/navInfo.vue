@@ -3,9 +3,9 @@
     class="flex items-center space-x-2 bg-gradient-to-r from-[#0D0D0D] to-[#494949] px-3 py-1 rounded-full"
   >
     <!-- Coins -->
-      <div class="relative">
+      <div class="relative" >
         <!-- Trigger button -->
-        <div class="flex items-center bg-white rounded-full px-2 py-0 shadow-inner" >
+        <div class="flex items-center bg-white rounded-full px-2 py-0 shadow-inner"  @click="toggleDropdown" >
       <img
         src="https://placehold.co/28x28/png"
         alt="gold coin icon"
@@ -13,7 +13,7 @@
       />
       <span class="font-bold text-lg ml-2">1000</span>
       <button 
-      @click="toggleDropdown"
+     
         class="ml-2 bg-[#FFD45C] hover:bg-[#fccc42] rounded-full w-6 h-6 flex items-center justify-center font-bold text-black"
       >
         +
