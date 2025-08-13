@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import matchCard from "./matchCard.vue";
 import { ref, onMounted, watch, onUnmounted } from "vue";
-
+import ChevronLeft from "../assets/imgs/icon-left.svg";
+import ChevronRight from "../assets/imgs/icon-right.svg";
 interface Slide {
   image: string;
   title?: string;
@@ -14,11 +15,11 @@ const props = defineProps<{
 const sliderRef = ref<HTMLDivElement | null>(null);
 const itemRefs = ref<HTMLDivElement[]>([]);
 const showAll = ref<boolean>(false);
-const windowWidth = ref<number>(0)
+const windowWidth = ref<number>(0);
 
 onMounted(() => {
   itemRefs.value = [];
-   handleResize();
+  handleResize();
 
   window.addEventListener("resize", handleResize);
 });
@@ -31,7 +32,6 @@ const handleResize = (): void => {
   windowWidth.value = window.innerWidth;
   showAll.value = window.innerWidth < 768;
 };
-
 
 const setItemRef = (el: HTMLDivElement | null) => {
   if (el) itemRefs.value.push(el);
@@ -53,19 +53,21 @@ const scrollToPrev = () => {
   sliderRef.value.scrollTo({ left: prevScroll, behavior: "smooth" });
 };
 
-   watch(
+watch(
   () => props.slides,
   () => {
     itemRefs.value = [];
   }
 );
-
 </script>
 
 <template>
   <div class="w-full">
     <!-- Header -->
-    <div v-if="windowWidth > 768" class="flex justify-between items-center mb-4 rounded">
+    <div
+      v-if="windowWidth > 768"
+      class="flex justify-between items-center mb-4 rounded"
+    >
       <span class="text-xs text-gray-500 px-3 py-1">SECTION_Thumbnails</span>
       <a
         @click="showAll = !showAll"
@@ -110,44 +112,19 @@ const scrollToPrev = () => {
       <button
         v-if="!showAll"
         @click="scrollToPrev"
-        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hover:bg-gray-100"
+        style="left: -49px"
+        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer p-2"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
+        <img :src="ChevronLeft" alt="Prev" class="w-20 h-56" />
       </button>
 
       <!-- Nút phải -->
       <button
         v-if="!showAll"
         @click="scrollToNext"
-        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 hover:bg-gray-100"
+        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer p-2"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+        <img :src="ChevronRight" alt="Next" class="w-20 h-56" />
       </button>
 
       <!-- Container -->
@@ -176,9 +153,8 @@ const scrollToPrev = () => {
             <div v-if="item.title" class="p-2 text-center text-sm font-medium">
               {{ item.title }}
             </div> -->
-               <MatchCard :items="item" />
-
-            </div>
+            <MatchCard :items="item" />
+          </div>
         </div>
       </div>
     </div>
@@ -193,5 +169,4 @@ const scrollToPrev = () => {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 </style>
