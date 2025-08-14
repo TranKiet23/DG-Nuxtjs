@@ -5,7 +5,7 @@
     <Loading v-if="isLoad"></Loading>
 
     <!-- Main Content -->
-    <main  class="max-w-[1448px] mx-auto px-4 py-2 container-main">
+    <main  class="max-w-[1440px] mx-auto px-4 py-2 container-main">
       <h1 class="text-3xl font-bold text-center mb-8">Upcoming Matches</h1>
 
       <!-- Slider -->
