@@ -2,13 +2,14 @@
   <div :class="currentTheme === 'light' ? 'bg-gray-100' : 'bg-gray-400'">
     <!-- Header -->
     <Header  @update:theme="handleThemeChange" />
+    <Loading v-if="isLoad"></Loading>
 
     <!-- Main Content -->
-    <main class="max-w-[1448px] mx-auto px-4 py-2 container-main">
+    <main  class="max-w-[1448px] mx-auto px-4 py-2 container-main">
       <h1 class="text-3xl font-bold text-center mb-8">Upcoming Matches</h1>
 
       <!-- Slider -->
-      <div class="w-full">
+      <div v-if="!isLoad" class="w-full">
         <ImageSlider :slides="slides" />
       </div>
     </main>
@@ -21,11 +22,21 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import Header from '../components/layoutHeader.vue';
 import ImageSlider from "../components/imageSlider.vue";
-import type { Slide } from "../types/slide"
+import Loading from '../components/loading.vue';
+import type { Slide } from "../types/slide";
 
-const currentTheme = ref<'light' | 'dark'>('light')
+const currentTheme = ref<'light' | 'dark'>('light');
+const isLoad =  ref<boolean>(false)
+
+onMounted(() => {
+  isLoad.value = true
+  setTimeout(() => {
+    isLoad.value = false
+  }, 500) 
+})
 
 const handleThemeChange = (value: 'light' | 'dark') => {
   currentTheme.value = value
