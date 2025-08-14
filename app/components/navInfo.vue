@@ -156,11 +156,11 @@ const closeDropdown = (): void => {
 interface MenuItem {
   label: string;
   icon: string;
-  color: string;
+  link: string;
 }
-const menuItems: MenuItem[] = ref<any>(API.listInfo)
+const menuItems: MenuItem[] = API.listInfo;
  
-const showMenu = ref(false)
+const showMenu = ref(false);
 
 const toggleMenu = (): void => {
   showMenu.value = !showMenu.value
