@@ -1,5 +1,5 @@
 <template>
-  <div :class="currentTheme === 'light' ? 'bg-gray-200' : 'bg-gray-500'">
+  <div :class="currentTheme === 'light' ? 'bg-gray-100' : 'bg-gray-400'">
     <!-- Header -->
     <Header  @update:theme="handleThemeChange" />
 
