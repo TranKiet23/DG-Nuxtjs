@@ -104,26 +104,10 @@
 </template>
 
 <script setup lang="ts">
-interface MatchItem {
-  badge: boolean;
-  logo: string;
-  brandName: string;
-  brandHighlight: string;
-  league: string;
-  date: string;
-  time: string;
-  teamAName: string;
-  teamBName: string;
-  teamALogo: string;
-  teamBLogo: string;
-  commentator: string;
-  image: string;
-  alt: string;
-
-}
+import type { Slide } from "../types/slide"
 
 const props = defineProps<{
-  items: MatchItem;
+  items: Slide;
 }>();
 </script>
 

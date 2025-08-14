@@ -309,10 +309,16 @@ const toggleMobileMenu = (): void => {
 
 type Theme = "light" | "dark";
 
+const emit = defineEmits<{
+  (e: 'update:theme', value: 'light' | 'dark'): void
+}>()
+
 const theme = ref<Theme>("light");
 
 const toggleTheme = (): void => {
   theme.value = theme.value === "light" ? "dark" : "light";
+  emit('update:theme', theme.value)
+  
 };
 
 const secondaryMenu: SecondaryMenuItem[] = [
