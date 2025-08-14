@@ -143,6 +143,7 @@ const isOpen = ref<boolean>(false);
 const gold = ref<number>(1000);
 const silver = ref<number>(20000);
 const king = ref<number>(20000);
+const showMenu = ref<boolean>(false);
 
 const toggleDropdown = (): void => {
   isOpen.value = !isOpen.value;
@@ -160,7 +161,6 @@ interface MenuItem {
 }
 const menuItems: MenuItem[] = API.listInfo;
  
-const showMenu = ref(false);
 
 const toggleMenu = (): void => {
   showMenu.value = !showMenu.value
@@ -168,14 +168,6 @@ const toggleMenu = (): void => {
 
 }
 
-// Giả sử API trả về mảng MenuItem
-// const { data: menuItems, pending, error } = await useFetch<MenuItem[]>('/api/info')
-// console.log(menuItems, "menuItems")
-
-// // Nếu cần xử lý khi lỗi
-// if (error.value) {
-//   console.error('Lỗi tải menu:', error.value)
-// }
 </script>
 
 <style>

@@ -109,6 +109,7 @@ import type { Slide } from "../types/slide"
 const props = defineProps<{
   items: Slide;
 }>();
+
 </script>
 
 <style scoped>

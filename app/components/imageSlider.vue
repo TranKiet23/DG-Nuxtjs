@@ -149,11 +149,7 @@ watch(
           ]"
         >
           <div class="py-3 rounded-lg overflow-hidden">
-            <!-- <img :src="item.image" :alt="item.alt" class="w-full h-48 object-cover" />
-            <div v-if="item.title" class="p-2 text-center text-sm font-medium">
-              {{ item.title }}
-            </div> -->
-            <MatchCard :items="item" />
+            <matchCard :items="item" />
           </div>
         </div>
       </div>
