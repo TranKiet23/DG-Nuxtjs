@@ -3,10 +3,7 @@ import matchCard from "./matchCard.vue";
 import { ref, onMounted, watch, onUnmounted } from "vue";
 import ChevronLeft from "../assets/imgs/icon-left.svg";
 import ChevronRight from "../assets/imgs/icon-right.svg";
-interface Slide {
-  image: string;
-  title?: string;
-}
+import type { Slide } from "../types/slide"
 
 const props = defineProps<{
   slides: Slide[];
