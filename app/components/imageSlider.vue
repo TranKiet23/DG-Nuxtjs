@@ -3,10 +3,7 @@ import matchCard from "./matchCard.vue";
 import { ref, onMounted, watch, onUnmounted } from "vue";
 import ChevronLeft from "../assets/imgs/icon-left.svg";
 import ChevronRight from "../assets/imgs/icon-right.svg";
-interface Slide {
-  image: string;
-  title?: string;
-}
+import type { Slide } from "../types/slide"
 
 const props = defineProps<{
   slides: Slide[];
@@ -149,11 +146,7 @@ watch(
           ]"
         >
           <div class="py-3 rounded-lg overflow-hidden">
-            <!-- <img :src="item.image" :alt="item.alt" class="w-full h-48 object-cover" />
-            <div v-if="item.title" class="p-2 text-center text-sm font-medium">
-              {{ item.title }}
-            </div> -->
-            <MatchCard :items="item" />
+            <matchCard :items="item" />
           </div>
         </div>
       </div>
